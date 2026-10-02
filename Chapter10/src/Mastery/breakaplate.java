@@ -63,6 +63,7 @@ public class breakaplate {
 		JLabel plate1 = new JLabel("");
 		plate1.setBounds(73, 23, 276, 93);
 		panel.add(plate1);
+		plate1.setIcon(plates);
 		
 		JButton button = new JButton("Break a Plate!");
 		button.setBounds(79, 127, 259, 52);
@@ -83,20 +84,20 @@ public class breakaplate {
 				{
 					plate1.setIcon(platesallbroken);
 					outcome.setIcon(tigerplush);
-					button.setText("You broke all three plates!");
+					button.setText("Play again.");
 					
 				}
 				else if(platesbroken == 2)
 				{
 					plate1.setIcon(plates);
 					outcome.setIcon(sticker);
-					button.setText("You broke no plates.");
+					button.setText("Play again.");
 				}
 				else if(platesbroken == 3)
 				{
 					plate1.setIcon(platestwobroken);
 					outcome.setIcon(sticker);
-					button.setText("You only broke two plates. Close!");
+					button.setText("Play again.");
 					
 				}
 			}

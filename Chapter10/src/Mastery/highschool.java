@@ -6,16 +6,17 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
-import java.awt.Color;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class highschool {
 
@@ -43,80 +44,125 @@ public class highschool {
 	 * Create the application.
 	 */
 	public highschool() {
-	{
 		initialize();
 	}
-	
-	}
-
-
-	
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		ImageIcon bird = new ImageIcon("../Chapter10/src/SkillBuilders/bird.png");
+		ImageIcon chhs = new ImageIcon("../Chapter10/src/SkillBuilders/chhs.png");
+		ImageIcon qehs = new ImageIcon("../Chapter10/src/SkillBuilders/qehs.png");
+		ImageIcon wahs = new ImageIcon("../Chapter10/src/SkillBuilders/wahs.png");
 		frame = new JFrame();
-		frame.setBounds(100, 100, 636, 395);
+		frame.setBounds(100, 100, 766, 727);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 620, 356);
+		panel.setBounds(0, 0, 750, 688);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		firstname = new JTextField();
-		firstname.setText("First Name");
-		firstname.setBounds(45, 11, 173, 53);
-		frame.getContentPane().add(firstname);
-		firstname.setColumns(10);
-		firstname.addKeyListener(new KeyAdapter()
-				{
-		    @Override
-			public void keyTyped(KeyEvent e)
-			{
-				
-				if(firstname.getText().equals("Enter first name"))
-				{
-					firstname.setText("");
-				}
-			
-			}
-		    {
-		lastname = new JTextField();
-		lastname.setText("Last Name");
-		lastname.setColumns(10);
-		lastname.setBounds(236, 11, 173, 53);
-		frame.getContentPane().add(lastname);
-		
-		JButton button = new JButton("Submit");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button.setBackground(new Color(192, 192, 192));
-		button.setBounds(425, 11, 146, 263);
-		frame.getContentPane().add(button);
-		
-		JComboBox dropbox1 = new JComboBox();
-		dropbox1.setBounds(45, 85, 173, 41);
-		frame.getContentPane().add(dropbox1);
 		
 		JComboBox school = new JComboBox();
-		school.setBounds(236, 85, 173, 41);
-		frame.getContentPane().add(school);
+		school.setModel(new DefaultComboBoxModel(new String[] {"Western Canada", "Crescent Heights", "William Aberhart", "Queen Elizabeth",}));
+		school.setBounds(281, 113, 223, 40);
+		panel.add(school);
 		
-		JLabel text = new JLabel("");
-		text.setHorizontalAlignment(SwingConstants.LEFT);
-		text.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		text.setBackground(Color.DARK_GRAY);
-		text.setBounds(45, 137, 364, 76);
-		frame.getContentPane().add(text);
+		JComboBox grade = new JComboBox();
+		grade.setModel(new DefaultComboBoxModel(new String[] {"10", "11", "12"}));
+		grade.setBounds(27, 113, 215, 40);
+		panel.add(grade);
+	    
+		JLabel picture = new JLabel("");
+		picture.setBounds(27, 265, 477, 412);
+		panel.add(picture);
 		
-		JLabel image = new JLabel("");
-		image.setBounds(45, 224, 202, 121);
-		frame.getContentPane().add(image);
-	
+		
+			JLabel print = new JLabel("");
+		print.setBounds(27, 164, 477, 90);
+		panel.add(print);
+		
+		JButton submit = new JButton("Submit");
+		submit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String fN = firstname.getText();
+				String lN = lastname.getText();
+				String gN = grade.getSelectedItem().toString();
+				String sN = school.getSelectedItem().toString();
+			print.setText(fN + " " + lN + " is in Grade " + gN + " and goes to " + sN + " High School.");
+			
+			if(sN == ("Crescent Heights"))
+		    {
+		    	picture.setIcon(chhs);
+		    }
+		    else if(sN == ("Western Canada"))
+		    {
+		    	picture.setIcon(bird);
+		    }
+		    else if(sN == ("William Aberhart"))
+		    {
+		    	picture.setIcon(wahs);
+		    }
+		    else if(sN == ("Queen Elizabeth"))
+		    {
+		    	picture.setIcon(qehs);
+		    }
+	       
+			}
+			
+			
+			});
+		submit.setBounds(525, 36, 204, 641);
+		panel.add(submit);
+		
+		lastname = new JTextField();
+		lastname.setBounds(281, 36, 223, 66);
+		panel.add(lastname);
+		lastname.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) 
+			{
+			   if(lastname.getText().equals("Enter last name"))
+			   {
+				   lastname.setText("");
+			   }
+			
+			}
+		});
+		lastname.setText("Enter last name");
+		lastname.setColumns(10);
+		
+		firstname = new JTextField();
+		firstname.setBounds(27, 36, 215, 66);
+		panel.add(firstname);
+		firstname.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) 
+			{
+				if (firstname.getText().equals("Enter first name"))
+				   {
+					   firstname.setText("");
+				   }
+				
+				}
+			});
+		firstname.setText("Enter first name");
+		firstname.setColumns(10);
+		{
+			}
 	}
-}
+		
+		
+
+	   
+		
+	
+			{
+				
+			}
+	}
+
