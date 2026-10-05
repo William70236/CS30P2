@@ -55,6 +55,11 @@ public class highschool {
 		ImageIcon chhs = new ImageIcon("../Chapter10/src/SkillBuilders/chhs.png");
 		ImageIcon qehs = new ImageIcon("../Chapter10/src/SkillBuilders/qehs.png");
 		ImageIcon wahs = new ImageIcon("../Chapter10/src/SkillBuilders/wahs.png");
+		ImageIcon bowness = new ImageIcon("../Chapter10/src/SkillBuilders/bowness.png");
+		ImageIcon centennial = new ImageIcon("../Chapter10/src/SkillBuilders/centennial.png");
+		ImageIcon rams = new ImageIcon("../Chapter10/src/SkillBuilders/rams.jpg");
+		ImageIcon forestlawn = new ImageIcon("../Chapter10/src/SkillBuilders/forestlawn.png");
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 766, 727);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +72,7 @@ public class highschool {
 		
 		
 		JComboBox school = new JComboBox();
-		school.setModel(new DefaultComboBoxModel(new String[] {"Western Canada", "Crescent Heights", "William Aberhart", "Queen Elizabeth",}));
+		school.setModel(new DefaultComboBoxModel(new String[] {"Western Canada", "Crescent Heights", "William Aberhart", "Queen Elizabeth", "Bowness", "Centennial", "Central Memorial", "Forest Lawn", "James Fowler",}));
 		school.setBounds(281, 113, 223, 40);
 		panel.add(school);
 		
@@ -111,7 +116,22 @@ public class highschool {
 		    {
 		    	picture.setIcon(qehs);
 		    }
-	       
+		    else if(sN == ("Bowness"))
+		    {
+		    	picture.setIcon(bowness);
+		    }
+		    else if(sN == ("Centennial"))
+		    {
+		    	picture.setIcon(centennial);
+		    }
+		    else if(sN == ("Central Memorial"))
+		    {
+		    	picture.setIcon(rams);
+		    }
+		    else if(sN == ("Forest Lawn"))
+		    {
+		    	picture.setIcon(forestlawn);
+		    }
 			}
 			
 			
