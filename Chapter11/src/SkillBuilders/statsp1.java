@@ -6,7 +6,7 @@ public class statsp1
 
 	public static void main(String[] args) 
 	{
-      File dataFile = new File ("SchoolScores.dat");
+      File dataFile = new File ("C:\\Users\\48321005\\git\\CS30P2\\Chapter11\\src\\SkillBuilders\\schoolscores.dat");
       FileWriter out;
       BufferedWriter writeFile;
       Scanner input = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class statsp1
     	  out = new FileWriter(dataFile);
     	  writeFile = new BufferedWriter(out);
     	  for (int i = 0; i < 5; i++) {
-    	     System.out.print(":Enter student name:"); 
+    	     System.out.print("Enter student name:"); 
     	     name = input.next();
     	     System.out.print("Enter test score:");
     	     score = input.nextDouble();
